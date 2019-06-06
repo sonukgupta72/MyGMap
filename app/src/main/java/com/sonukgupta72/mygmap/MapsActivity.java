@@ -178,8 +178,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void checkout() {
+        if (mLocation == null) {
+            return;
+        }
         //Move the camera to the user's location and zoom in!
-        mMap.addMarker(new MarkerOptions().position(ll).title("Your Current Location!"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(mLocation.getLatitude(), mLocation.getLongitude())).title("Your Current Location!"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(mLocation.getLatitude(), mLocation.getLongitude()), 12.0f));
     }
 
