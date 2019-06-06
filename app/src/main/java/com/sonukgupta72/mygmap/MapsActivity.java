@@ -86,8 +86,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                mMap.addMarker(new MarkerOptions().position(ll).title("Your Current Location!"));
 //                mMap.moveCamera(CameraUpdateFactory.newLatLng(ll));
 
+                mMap.addMarker(new MarkerOptions().position(ll).title("Your Current Location!"));
                 //Move the camera to the user's location and zoom in!
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 12.0f));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ll, 12.0f));
             }
         });
 
@@ -178,6 +179,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void checkout() {
         //Move the camera to the user's location and zoom in!
+        mMap.addMarker(new MarkerOptions().position(ll).title("Your Current Location!"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(mLocation.getLatitude(), mLocation.getLongitude()), 12.0f));
     }
 
